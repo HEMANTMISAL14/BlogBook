@@ -1,0 +1,41 @@
+{%extends 'base.html' %}
+
+{%block title %} Welcome to BlogBook {%endblock%}
+
+{%block content %}
+
+<div class="container-custom">
+    <div class="owl-carousel">
+
+
+
+
+
+    </div>
+</div>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col s12 ">
+            {%for cat in cats %}
+            <div class="row">
+                <div class="col s12 m8">
+                    <h3>{{cat.title}}</h3>
+                    {{cat.description | safe}}
+                    <div class="mt20">
+                        <br/><br/><br/><a href="/category/{{cat.url}}" class="btn bg-primary">SEE MORE BLOGS....</a>
+                    </div>
+                </div>
+                <div class="col s12 m4">
+                    <img src="/media/{{cat.image}}" class="responsive-img" style="margin-top:50px;">
+                </div>
+            </div><hr>
+            {%endfor%}
+        </div>
+
+    </div>
+
+</div>
+
+{%endblock%}

@@ -1,0 +1,37 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+<div class="header-bar">
+    <h1>Register</h1>
+</div>
+<div class="card-body">
+    <form action="" method="post">
+        {% csrf_token %}
+        <label>{{ form.first_name.label }}</label>
+        {{ form.first_name }}
+
+        {% csrf_token %}
+        <label>{{ form.last_name.label }}</label>
+        {{ form.last_name }}
+
+        {% csrf_token %}
+        <label>{{ form.username.label }}</label>
+        {{ form.username }}
+
+        {% csrf_token %}
+        <label>{{ form.email.label }}</label>
+        {{ form.email }}
+
+        <label>{{ form.password1.label }}</label>
+        {{ form.password1 }}
+
+        <label>{{ form.password2.label }}</label>
+        {{ form.password2 }}
+        <br><br>
+        <input class="button" type="submit" value="Register Now">
+
+        <small>Have an account already? <a href="/accounts/login">Login Now</a></small>
+     </form>
+</div>
+{% endblock content %}

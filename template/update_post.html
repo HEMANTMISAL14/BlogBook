@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %}Update Blog Post{% endblock %}
+
+{% block content %}
+
+{% if request.user.is_authenticated %}
+{% if user.id == post.author.id %}
+<div class="container">
+
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{form.media}}
+        {{form.as_p}}
+        <button class="btn btn-secondary">Update Blog</button><br/><br/>
+    </form>
+{% else %}
+    you are not allowed
+{% endif %}
+</div>
+{% else %}
+<br/>
+<br/>
+<h3>First Register or Login</h3>
+<br/>
+<br/>
+{% endif %}
+
+{% endblock %}
